@@ -1,0 +1,31 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Workflow ini akan dijalankan setiap kali ada push ke branch main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # Menjalankan di environment Ubuntu terbaru
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2 # Mengecek kode dari repository
+
+      - name: Set up Node.js (optional, jika Anda menggunakan tools build)
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # Versi Node.js yang ingin digunakan
+
+      - name: Build the project (optional, jika menggunakan build tools seperti npm atau yarn)
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.2.0 # Menggunakan action ini untuk deploy ke GitHub Pages
+        with:
+          branch: gh-pages # Nama branch tempat situs akan dideploy
+          folder: build # Folder tempat hasil build aplikasi (gunakan folder 'build' jika ada)
+          token: ${{ secrets.GITHUB_TOKEN }} # Token yang digunakan untuk autentikasi

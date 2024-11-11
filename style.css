@@ -35,3 +35,66 @@ nav ul li a {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+/* Style Dasar Halaman Home */
+.home-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Selaraskan teks dalam satu baris */
+.intro h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hello {
+    color: #ff4b5c;
+    margin-right: 5px; /* Jarak kecil agar teks "Hello," dan "I'm Gilang" tidak terlalu rapat */
+}
+
+/* Animasi typing untuk "I'm Gilang" dengan pengulangan */
+.typing-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    animation: typing 10s steps(25, end) infinite, blink 10s step-end infinite;
+}
+
+/* Mengulang animasi typing */
+@keyframes typing {
+    0% { width: 0; }
+    50%, 100% { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Tombol "See My Porto" */
+.btn-porto {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ff4b5c;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-porto:hover {
+    background-color: #ff7675;
+}

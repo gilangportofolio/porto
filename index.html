@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gilang's Portfolio</title>
-    <link rel="stylesheet" href="style.css"> <!-- Pastikan path style.css benar -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header dengan Menu Navigasi -->
     <header>
         <nav>
-            <ul>
+            <span class="hamburger-menu" onclick="toggleMenu()">&#9776;</span>
+            <ul id="menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#experience">Work Experience</a></li>
@@ -34,6 +35,15 @@
             .catch(error => {
                 console.error("Error loading home.html:", error); // Cek jika terjadi error
             });
+
+        // Fungsi untuk men-toggle menu
+        function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active'); // Toggle kelas 'active' untuk menampilkan atau menyembunyikan menu
+}
+
+
+
     </script>
 </body>
 </html>

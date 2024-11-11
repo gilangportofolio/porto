@@ -1,3 +1,5 @@
+/* Pengaturan dasar untuk seluruh halaman */
+/* Pengaturan dasar */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,25 +7,90 @@ body {
     box-sizing: border-box;
 }
 
+/* Header Dasar */
 header {
     background-color: #333;
     padding: 1rem;
-    text-align: center;
+    position: relative;
 }
 
+/* Navigasi */
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    display: inline;
     margin-right: 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+}
+
+/* Hamburger Icon */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+/* Responsif untuk layar kecil */
+@media only screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Menyembunyikan menu secara default pada layar kecil */
+    #menu {
+        display: none; /* Sembunyikan menu awalnya */
+        position: fixed;
+        background-color: #333;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        flex-direction: column;
+        padding-top: 60px; /* Beri jarak dari atas */
+        text-align: left;
+    }
+
+    /* Menampilkan menu saat aktif */
+    #menu.active {
+        display: flex; /* Tampilkan menu */
+    }
+
+    #menu li {
+        margin: 15px 0;
+    }
+
+    #menu li a {
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        display: block;
+    }
+}
+
+
+
+/* Animasi sederhana untuk teks */
+#home h1 {
+    animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Animasi sederhana untuk teks */
@@ -97,4 +164,61 @@ nav ul li a {
 
 .btn-porto:hover {
     background-color: #ff7675;
+}
+
+/* Untuk layar kecil (ponsel dan tablet) */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    header nav ul li a {
+        font-size: 16px;
+    }
+
+    #home {
+        padding: 30px 15px;
+    }
+
+    .intro h1 {
+        font-size: 28px;
+    }
+
+    .intro p {
+        font-size: 16px;
+    }
+
+    .btn-porto {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+/* Untuk layar lebih kecil dari 480px (ponsel) */
+@media only screen and (max-width: 480px) {
+    header nav ul li {
+        font-size: 14px;
+    }
+
+    .intro h1 {
+        font-size: 24px;
+    }
+
+    .intro p {
+        font-size: 14px;
+    }
+
+    .btn-porto {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
 }

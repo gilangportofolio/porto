@@ -1,4 +1,3 @@
-/* Pengaturan dasar untuk seluruh halaman */
 /* Pengaturan dasar */
 body {
     font-family: Arial, sans-serif;
@@ -7,11 +6,11 @@ body {
     box-sizing: border-box;
 }
 
-/* Header Dasar */
 header {
     background-color: #333;
     padding: 1rem;
     position: relative;
+    z-index: 10;
 }
 
 /* Navigasi */
@@ -56,12 +55,13 @@ nav ul li a {
         position: fixed;
         background-color: #333;
         top: 0;
-        right: 0;
-        height: 100vh;
-        width: 250px;
+        left: 0;
+        height: 100vh; /* Menu mengambil seluruh tinggi layar */
+        width: 100%;
         flex-direction: column;
-        padding-top: 60px; /* Beri jarak dari atas */
         text-align: left;
+        padding-top: 50px;
+        z-index: 9;
     }
 
     /* Menampilkan menu saat aktif */
@@ -79,18 +79,11 @@ nav ul li a {
         padding: 10px;
         display: block;
     }
-}
 
-
-
-/* Animasi sederhana untuk teks */
-#home h1 {
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    /* Menggeser konten utama saat menu aktif */
+    .content-shift {
+        margin-top: 100px; /* Sesuaikan margin dengan tinggi hamburger menu */
+    }
 }
 
 /* Animasi sederhana untuk teks */
@@ -116,7 +109,6 @@ nav ul li a {
     padding: 20px;
 }
 
-/* Selaraskan teks dalam satu baris */
 .intro h1 {
     font-size: 2.5rem;
     color: #fff;
@@ -127,26 +119,7 @@ nav ul li a {
 
 .hello {
     color: #ff4b5c;
-    margin-right: 5px; /* Jarak kecil agar teks "Hello," dan "I'm Gilang" tidak terlalu rapat */
-}
-
-/* Animasi typing untuk "I'm Gilang" dengan pengulangan */
-.typing-text {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #fff;
-    animation: typing 10s steps(25, end) infinite, blink 10s step-end infinite;
-}
-
-/* Mengulang animasi typing */
-@keyframes typing {
-    0% { width: 0; }
-    50%, 100% { width: 100%; }
-}
-
-@keyframes blink {
-    50% { border-color: transparent; }
+    margin-right: 5px;
 }
 
 /* Tombol "See My Porto" */

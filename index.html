@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Header dengan Menu Navigasi -->
-    <header>
+    <header id="header">
         <nav>
             <span class="hamburger-menu" onclick="toggleMenu()">&#9776;</span>
             <ul id="menu">
@@ -35,15 +35,20 @@
             .catch(error => {
                 console.error("Error loading home.html:", error); // Cek jika terjadi error
             });
-
+       
         // Fungsi untuk men-toggle menu
         function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('active'); // Toggle kelas 'active' untuk menampilkan atau menyembunyikan menu
-}
+            const menu = document.getElementById('menu');
+            const content = document.getElementById('content'); // Konten utama
+            menu.classList.toggle('active'); // Toggle kelas 'active' untuk menampilkan atau menyembunyikan menu
 
-
-
+            // Tambahkan kelas untuk menggeser konten utama saat menu aktif
+            if (menu.classList.contains('active')) {
+                content.classList.add('content-shift'); // Geser konten ke bawah saat menu aktif
+            } else {
+                content.classList.remove('content-shift'); // Kembalikan konten ke posisi semula saat menu ditutup
+            }
+        }
     </script>
 </body>
 </html>
